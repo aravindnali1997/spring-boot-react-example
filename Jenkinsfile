@@ -1,6 +1,6 @@
 
 pipeline {
-    agent any https://github.com/your-username/spring-boot-react-example.git'
+    agent any 
 
     environment {
         DOCKER_IMAGE_BACKEND = "your-docker-repo/backend:${env.BUILD_ID}"
