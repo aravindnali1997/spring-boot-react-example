@@ -1,6 +1,6 @@
 
 pipeline {
-    agent anyhttps://gitlab.com/your-username/spring-boot-react-example.git'
+    agent any https://github.com/your-username/spring-boot-react-example.git'
 
     environment {
         DOCKER_IMAGE_BACKEND = "your-docker-repo/backend:${env.BUILD_ID}"
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://gitlab.com/aravindnali1997/spring-boot-react-example.git'
+                git 'https://github.com/aravindnali1997/spring-boot-react-example.git'
             }
         }
 
