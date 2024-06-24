@@ -3,8 +3,8 @@ pipeline {
     agent any 
 
     environment {
-        DOCKER_IMAGE_BACKEND = "your-docker-repo/backend:${env.BUILD_ID}"
-        DOCKER_IMAGE_FRONTEND = "your-docker-repo/frontend:${env.BUILD_ID}"
+        DOCKER_IMAGE_BACKEND = "aravindnali51/backend:${env.BUILD_ID}"
+        DOCKER_IMAGE_FRONTEND = "aravindnali51/frontend:${env.BUILD_ID}"
         AWS_DEFAULT_REGION = 'us-west-2'
         TF_IN_AUTOMATION = 'true'
     }
