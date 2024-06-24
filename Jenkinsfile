@@ -1,4 +1,3 @@
-
 pipeline {
     agent any 
 
@@ -19,12 +18,12 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh './mvnw clean package -DskipTests'
+                    bat './mvnw clean package -DskipTests'
                 }
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'backend/target/*.jar', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'backend\\target\\*.jar', allowEmptyArchive: true
                 }
             }
         }
@@ -32,7 +31,7 @@ pipeline {
         stage('Test Backend') {
             steps {
                 dir('backend') {
-                    sh './mvnw test'
+                    bat './mvnw test'
                 }
             }
         }
@@ -40,8 +39,8 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'npm install'
-                    sh 'npm run build'
+                    bat 'npm install'
+                    bat 'npm run build'
                 }
             }
         }
@@ -49,7 +48,7 @@ pipeline {
         stage('Test Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'npm test'
+                    bat 'npm test'
                 }
             }
         }
@@ -66,8 +65,8 @@ pipeline {
         stage('Deploy Infrastructure') {
             steps {
                 dir('infra') {
-                    sh 'terraform init'
-                    sh 'terraform apply -auto-approve'
+                    bat 'terraform init'
+                    bat 'terraform apply -auto-approve'
                 }
             }
         }
