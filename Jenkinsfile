@@ -18,7 +18,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    bat './mvnw clean package -DskipTests'
+                    bat 'mvnw.cmd clean package -DskipTests'
                 }
             }
             post {
@@ -31,7 +31,7 @@ pipeline {
         stage('Test Backend') {
             steps {
                 dir('backend') {
-                    bat './mvnw test'
+                    bat 'mvnw.cmd test'
                 }
             }
         }
